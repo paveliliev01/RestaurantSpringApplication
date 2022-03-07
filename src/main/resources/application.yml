@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: ${app.datasource.url}
+    username: ${app.datasource.username}
+    password: ${app.datasource.password}
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: validate
+    properties.hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      format_sql: true
+      jdbc:
+        lob.non_contextual_creation: true
+        time_zone: UTC
+  flyway:
+    enable: true
+    baseline-on-migrate: true
+    baseline-version: 1
+    driver-class-name: org.postgresql.Driver
+    url: ${app.datasource.url}
+    user: ${app.datasource.username}
+    password: ${app.datasource.password}
+
+app:
+  datasource:
+    vendor: postgres
+    url: jdbc:postgresql://localhost:5432/restaurant
+    username: user
+    password: password
